@@ -1,0 +1,55 @@
+{% extends "template.html" %}
+
+{% block body %}
+<!-- Botão para adicionar nova tarefa -->
+<button class="w-min bg-blue-900 text-1xl p-1 rounded mx-5 my-5 text-white">
+    <a href="/cadastro">
+        Adicionar
+    </a>
+</button>
+
+<!-- Container para exibir as tarefas -->
+<div class="px-5 text-xl flex flex-row bg-blue-500 m-10 border-solid border-2">
+    <!-- Lista de números de tarefas -->
+    <ul class="mx-auto">
+        <li class="my-3">Numero</li>
+        {% for tarefa in tarefas %}
+        <li class="my-3">{{ tarefa.id }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Lista de nomes das tarefas -->
+    <ul class="mx-auto">
+        <li class="my-3">Nome</li>
+        {% for tarefa in tarefas %}
+        <li class="my-3">{{ tarefa.nome }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Lista de datas das tarefas -->
+    <ul class="mx-auto">
+        <li class="my-3">Data</li>
+        {% for tarefa in tarefas %}
+        <li class="my-3">{{ tarefa.data }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Lista de descrições das tarefas -->
+    <ul class="mx-auto">
+        <li class="my-3">Descrição</li>
+        {% for tarefa in tarefas %}
+        <li class="my-3">{{ tarefa.descricao }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Lista de links para concluir tarefas -->
+    <ul class="mx-auto">
+        <li class="my-3">---------</li>
+        {% for tarefa in tarefas %}
+        <li class="my-3">
+            <a href="/conc/{{ tarefa.id }}" class="bg-green-500 p-1 rounded rounded-full">Concluir</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
